@@ -15,17 +15,19 @@ def main(arguments):
                         help='csv file for output')
     parser.add_argument('house_names', metavar='houses.txt', nargs='?',
                         help='line by line input for house names')
-    parser.add_argument('-g', metavar='min max', type=float, nargs=2,
+    parser.add_argument('-g', metavar=('min', 'max'), type=float, nargs=2,
                         default=[0.45,0.55],
-                        help='acceptable gender coefficient')
-    parser.add_argument('-s', metavar='distribution niche', type=float, nargs=2,
+                        help='acceptable gender coefficient from 0 to 1, default [0.45,0.55]')
+    parser.add_argument('-s', metavar=('distribution', 'niche'), type=float, nargs=2,
                         default=[0.2,0.8],
-                        help='acceptable school coefficient for distributing students' +
-                        'from the same school and congregating students from niche schools')
-    parser.add_argument('-m', metavar='distribution niche', type=float, nargs=2,
+                        help='acceptable school coefficient for distributing students ' +
+                        'from the same school and congregating students from niche schools' +
+                        ' from 0 to 1, default [0.2,0.8]')
+    parser.add_argument('-m', metavar=('distribution', 'niche'), type=float, nargs=2,
                         default=[0.2,1],
-                        help='acceptable major coefficient for distributing students' +
-                        'from the same major and congregating students from niche major')
+                        help='acceptable major coefficient for distributing students ' +
+                        'from the same major and congregating students from niche major' +
+                        ' from 0 to 1, default [0.2,1]')
     args = parser.parse_args(arguments)
     print("Input file: ",args.file_input)
     print("Output file: ",args.file_output)
